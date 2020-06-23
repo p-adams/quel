@@ -1,9 +1,19 @@
 <template>
-  <div>quel app</div>
+  <div v-quel>quel app</div>
 </template>
 
-<script>
+<script lang="ts">
+type statement = "SELECT" | "INSERT" | "UPDATE" | "DELETE";
+
 export default {
-  name: "App"
+  name: "App",
+  data: () => ({
+    el: null
+  }),
+  directives: {
+    quel: function(el, binding, vnode) {
+      console.log(el);
+    }
+  }
 };
 </script>
