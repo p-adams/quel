@@ -10,11 +10,12 @@
 </template>
 
 <script lang="ts">
+type statement = "CREATE" | "SELECT" | "INSERT" | "UPDATE" | "DELETE";
 export default {
   name: "App",
   data: (): {
     count: number;
-    query: "CREATE" | "SELECT" | "INSERT" | "UPDATE" | "DELETE";
+    query: string;
   } => ({
     count: 0,
     query: "SELECT"
