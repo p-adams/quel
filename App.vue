@@ -1,6 +1,7 @@
 <template>
-  <div v-quel="query">quel app
-    <div>{{ count }}
+  <div v-quel="query">
+    quel app
+    <div>{{ count }}</div>
     <div>
       <button @click="count--">-</button>
       <button @click="count++">+</button>
@@ -9,7 +10,7 @@
 </template>
 
 <script lang="ts">
-type statement = "SELECT" | "INSERT" | "UPDATE" | "DELETE";
+type statement = "CREATE" | "SELECT" | "INSERT" | "UPDATE" | "DELETE";
 
 export default {
   name: "App",
@@ -19,7 +20,7 @@ export default {
   }),
   directives: {
     quel: function(el, bindings, vnode) {
-      const {children} = el
+      const { children } = el;
       const { value } = bindings;
       console.log(children, value);
     }
