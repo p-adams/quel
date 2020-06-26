@@ -11,6 +11,7 @@
 
 <script lang="ts">
 type statement = "CREATE" | "SELECT" | "INSERT" | "UPDATE" | "DELETE";
+let counterAppColumns = {};
 export default {
   name: "App",
   data: (): {
@@ -18,13 +19,15 @@ export default {
     query: string;
   } => ({
     count: 0,
-    query: "SELECT"
+    query: `INSERT INTO counter_app { "fontFamily": "Gill Sans Extrabold, sans-serif", "display": "flex" }`
   }),
   directives: {
     quel: function(el, bindings, vnode) {
-      const { children } = el;
-      const { value } = bindings;
-      console.log(children, value);
+      let { children } = el;
+      let { value } = bindings;
+      let [statement0, statement1, tableName, ...styles] = value.split(" ");
+      let stylesAsObject = JSON.parse(styles.join(""));
+      console.log(stylesAsObject);
     }
   }
 };
